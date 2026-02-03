@@ -15,7 +15,7 @@ export default function About() {
           animate={{ x: 0 }}
           transition={{ duration: 1, ease: "circOut" }}
           className="absolute top-0 right-0 w-1/2 h-full -skew-x-12 transform origin-top-right z-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/about%20page.jfif)' }}
+          style={{ backgroundImage: `url(${import.meta.env.BASE_URL}about%20page.jfif)` }}
         />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div 
@@ -92,8 +92,8 @@ export default function About() {
           
           <div className="space-y-12 max-w-5xl mx-auto">
             {[
-              { name: "Capt. Venkat", role: "Mentor & Advisor", bio: "Capt. Venkat is a former Army Officer and IIM Lucknow alumnus with extensive leadership experience. A visiting faculty at leading institutes, he has driven impactful talent transition initiatives with the Ministry of Defence and NASSCOM. He mentors Vritti HeadHunters with a strong focus on strategy and governance.", image: "/venkat.jfif" },
-              { name: "Dr. (Lt Col) John Chenetra", role: "Strategic Mentor", bio: "Leadership experience across the Indian Army, HR, BGV, and risk intelligence sectors. Brings discipline, governance, and execution excellence to Vritti HeadHunters.", image: "/john.jfif" }
+              { name: "Capt. Venkat", role: "Mentor & Advisor", bio: "Capt. Venkat is a former Army Officer and IIM Lucknow alumnus with extensive leadership experience. A visiting faculty at leading institutes, he has driven impactful talent transition initiatives with the Ministry of Defence and NASSCOM. He mentors Vritti HeadHunters with a strong focus on strategy and governance.", image: `${import.meta.env.BASE_URL}venkat.jfif` },
+              { name: "Dr. (Lt Col) John Chenetra", role: "Strategic Mentor", bio: "Leadership experience across the Indian Army, HR, BGV, and risk intelligence sectors. Brings discipline, governance, and execution excellence to Vritti HeadHunters.", image: `${import.meta.env.BASE_URL}john.jfif` }
             ].map((mentor, i) => (
               <motion.div 
                 key={i}

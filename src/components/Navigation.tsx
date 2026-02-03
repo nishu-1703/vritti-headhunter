@@ -7,12 +7,20 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 backdrop-blur-md z-50" style={{ backgroundImage: 'url(/background.jfif)', backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <nav
+      className="fixed top-0 left-0 right-0 backdrop-blur-md z-50"
+      style={{
+        backgroundImage: `url(${import.meta.env.BASE_URL}background.jfif)`,
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="absolute inset-0 bg-black/40 z-0" />
       <div className="container mx-auto px-6 py-4 flex items-center justify-between relative z-10">
         <Link href="/">
           <img 
-            src="/logo.jfif" 
+            src={`${import.meta.env.BASE_URL}logo.jfif`} 
             alt="Vritti Headhunters" 
             className="h-16 cursor-pointer hover:opacity-80 transition-opacity"
           />

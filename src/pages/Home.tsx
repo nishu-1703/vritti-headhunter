@@ -17,7 +17,16 @@ export default function Home() {
   const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9]);
 
   return (
-    <div ref={containerRef} className="min-h-screen relative overflow-hidden font-sans" style={{ backgroundImage: 'url(/background.jfif)', backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div
+      ref={containerRef}
+      className="min-h-screen relative overflow-hidden font-sans"
+      style={{
+        backgroundImage: `url(${import.meta.env.BASE_URL}background.jfif)`,
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/40 z-0" />
       <Navigation />
