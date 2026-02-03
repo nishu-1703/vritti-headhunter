@@ -4,7 +4,12 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages for a project site: /<repo-name>/
+  base: '/vritti-headhunter/',
   plugins: [react()],
+  build: {
+    outDir: 'docs',
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
