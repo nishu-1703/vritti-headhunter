@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
-import { Footer } from "@/components/Footer";
-import { Navigation } from "@/components/Navigation";
+import { Footer } from "../components/Footer";
+import { Navigation } from "../components/Navigation";
 
 export default function Contact() {
   return (
