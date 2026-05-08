@@ -2,23 +2,12 @@ import { motion } from "framer-motion";
 import { Quote, Sparkles } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { Navigation } from "../components/Navigation";
-
-const mentors = [
-  {
-    name: "Capt. Venkat",
-    role: "Mentor & Advisor",
-    bio: "Capt. Venkat is a former Army Officer and IIM Lucknow alumnus with extensive leadership experience. A visiting faculty at leading institutes, he has driven impactful talent transition initiatives with the Ministry of Defence and NASSCOM. He mentors Vritti HeadHunters with a strong focus on strategy and governance.",
-    image: `${import.meta.env.BASE_URL}venkat.jfif`,
-  },
-  {
-    name: "Dr. (Lt Col) John Chenetra",
-    role: "Strategic Mentor",
-    bio: "Leadership experience across the Indian Army, HR, BGV, and risk intelligence sectors. Brings discipline, governance, and execution excellence to Vritti HeadHunters.",
-    image: `${import.meta.env.BASE_URL}john.jfif`,
-  },
-];
+import { fallbackSiteContent, useSiteContent } from "@/lib/siteContent";
 
 export default function About() {
+  const { data: siteContent } = useSiteContent();
+  const content = (siteContent || fallbackSiteContent).about;
+
   return (
     <div className="site-shell pt-20">
       <Navigation />
@@ -36,22 +25,19 @@ export default function About() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <h1 className="font-heading text-5xl font-bold leading-[0.92] tracking-[-0.05em] text-slate-900 md:text-7xl">
-                BUILDING LEADERS
-                <span className="block text-gradient">STRENGTHENING ENTERPRISES</span>
+                {content.headline}
+                <span className="block text-gradient">{content.accent}</span>
               </h1>
 
               <div className="stage-panel mt-8 max-w-md rounded-[1.9rem] p-8">
                 <div className="grain-overlay" />
                 <p className="relative z-10 font-heading text-xl font-bold leading-relaxed italic text-slate-700 md:text-2xl">
-                  LEADING EXECUTIVE SEARCH AND
-                  <br />
-                  TALENT ADVISORY FIRM SHAPING
-                  <br />
-                  SUCCESS WITH VISIONARY
-                  <br />
-                  LEADERSHIP & TRANSFORMATIVE
-                  <br />
-                  HR SOLUTIONS, SINCE 2020
+                  {content.introQuote.split("\n").map((line, index) => (
+                    <span key={`${line}-${index}`}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
                 </p>
               </div>
             </motion.div>
@@ -126,10 +112,10 @@ export default function About() {
             >
               <div className="ambient-beam left-[48%] top-[-46%] opacity-35" />
               <h3 className="font-heading text-3xl font-bold tracking-[-0.04em] text-slate-900">
-                Our Belief
+                {content.beliefTitle}
               </h3>
               <p className="mt-4 text-base leading-8 text-slate-600 md:text-lg">
-                We believe exceptional individuals are the cornerstone of outstanding organizations. Our expert team secures top-tier talent across industries, creating empowering connections.
+                {content.beliefText}
               </p>
             </motion.div>
 
@@ -142,10 +128,10 @@ export default function About() {
             >
               <div className="ambient-beam left-[48%] top-[-46%] opacity-35" />
               <h3 className="font-heading text-3xl font-bold tracking-[-0.04em] text-slate-900">
-                Our Mission
+                {content.missionTitle}
               </h3>
               <p className="mt-4 text-base leading-8 text-slate-600 md:text-lg">
-                Exceptional talent builds extraordinary organizations. Our Expertise connects top professionals with thriving businesses for lasting success.
+                {content.missionText}
               </p>
             </motion.div>
           </div>
@@ -161,11 +147,11 @@ export default function About() {
             transition={{ duration: 0.7 }}
             className="section-title mb-12 text-center"
           >
-            Strategic Mentorship
+            {content.mentorsTitle}
           </motion.h2>
 
           <div className="space-y-6">
-            {mentors.map((mentor, index) => (
+            {content.mentors.map((mentor, index) => (
               <motion.div
                 key={mentor.name}
                 initial={{ opacity: 0, y: 24 }}
@@ -213,15 +199,15 @@ export default function About() {
             <div className="orbital-ring spin-soft right-[16%] bottom-[12%] h-44 w-44 [animation-direction:reverse]" />
             <Quote className="mx-auto h-12 w-12 text-[#5c8986]" />
             <blockquote className="relative z-10 mx-auto mt-8 max-w-4xl font-heading text-4xl font-bold leading-[1.06] tracking-[-0.04em] text-slate-900 md:text-6xl">
-              YOUR Success Is OUR Success
+              {content.quote}
             </blockquote>
             <div className="relative z-10 mt-8 flex flex-col items-center">
               <div className="h-1 w-20 rounded-full bg-[linear-gradient(90deg,#5c8986,#ceb88d)]" />
               <cite className="mt-6 not-italic text-xl font-semibold text-slate-900">
-                Chandrakala Katta
+                {content.quoteAuthor}
               </cite>
               <span className="mt-1 text-sm uppercase tracking-[0.26em] text-slate-500">
-                CEO, Vritti Headhunters
+                {content.quoteRole}
               </span>
             </div>
           </motion.div>

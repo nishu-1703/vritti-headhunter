@@ -17,44 +17,22 @@ import { Link } from "wouter";
 import { Footer } from "../components/Footer";
 import { Navigation } from "../components/Navigation";
 import { Button } from "../components/ui/button";
-
-const highlights = [
-  {
-    title: "Fortune 500 Clientele",
-    subtitle: "IMMENSE NETWORK",
-    icon: Target,
-  },
-  {
-    title: "No Further Out-sourcing",
-    subtitle: "REAL-TIME EXPERIENCE",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Direct Assessments",
-    subtitle: "ART OF READING RESUME",
-    icon: FileCheck2,
-  },
-  {
-    title: "On-Time Service",
-    subtitle: "STRONG MARKETING ABILITY",
-    icon: Clock3,
-  },
-];
-
-const expertise = [
-  "Leadership Hiring",
-  "Talent Acquisition",
-  "Background Verification",
-  "Contract Staffing",
-  "Payroll Management",
-  "Process Optimization",
-];
+import { fallbackSiteContent, useSiteContent } from "@/lib/siteContent";
 
 const heroImage = "https://cdn.pixabay.com/photo/2020/07/11/22/57/meeting-5395567_1280.jpg";
 const strategyImage = "https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_1280.jpg";
 const handshakeImage = "https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg";
 
+const highlightIcons = {
+  target: Target,
+  shield: ShieldCheck,
+  file: FileCheck2,
+  clock: Clock3,
+};
+
 export default function Home() {
+  const { data: siteContent } = useSiteContent();
+  const content = (siteContent || fallbackSiteContent).home;
   const containerRef = useRef(null);
   const heroCardRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -112,19 +90,19 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="relative z-10"
             >
-              <span className="section-chip">Vritti Headhunters</span>
+              <span className="section-chip">{content.eyebrow}</span>
               <h1 className="mt-6 font-heading text-5xl font-bold leading-[0.9] tracking-[-0.05em] text-slate-900 md:text-7xl">
-                Lateral & Diversity
-                <span className="text-gradient"> Hiring Expert</span>
+                {content.headline}
+                <span className="text-gradient"> {content.accent}</span>
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
-                Background Verification, Contract Staffing & Payroll Services
+                {content.subheadline}
               </p>
 
               <div className="mt-8">
                 <Link href="/services">
                   <Button size="lg">
-                    Explore
+                    {content.ctaLabel}
                     <ArrowRight size={18} />
                   </Button>
                 </Link>
@@ -198,10 +176,10 @@ export default function Home() {
 
             <div className="relative z-10 max-w-xl p-7 md:p-12">
               <span className="rounded-full border border-white/45 bg-white/16 px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/82 backdrop-blur">
-                Visual Hiring Flow
+                {content.visualChip}
               </span>
               <h2 className="mt-5 font-heading text-4xl font-bold leading-[0.92] tracking-[-0.06em] text-white md:text-6xl">
-                Designed to feel sharp, premium and calm.
+                {content.visualTitle}
               </h2>
             </div>
 
@@ -241,8 +219,8 @@ export default function Home() {
           </motion.div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
+            {content.highlights.map((item, index) => {
+              const Icon = highlightIcons[item.icon] || Target;
 
               return (
                 <motion.div
@@ -283,7 +261,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {expertise.map((item, index) => (
+            {content.expertise.map((item, index) => (
               <motion.div
                 key={item}
                 initial={{ opacity: 0, y: 24 }}
