@@ -21,7 +21,6 @@ import { fallbackSiteContent, useSiteContent } from "@/lib/siteContent";
 
 const heroImage = "https://cdn.pixabay.com/photo/2020/07/11/22/57/meeting-5395567_1280.jpg";
 const strategyImage = "https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_1280.jpg";
-const handshakeImage = "https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg";
 
 const highlightIcons = {
   target: Target,
@@ -183,21 +182,6 @@ export default function Home() {
               </h2>
             </div>
 
-            <motion.div
-              animate={{ y: [0, -16, 0], rotate: [-4, -1, -4] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="collage-float collage-float--top"
-            >
-              <img src={handshakeImage} alt="Recruitment handshake" className="h-full w-full object-cover" />
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 14, 0], rotate: [4, 1, 4] }}
-              transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-              className="collage-float collage-float--bottom"
-            >
-              <img src={heroImage} alt="Executive hiring meeting" className="h-full w-full object-cover" />
-            </motion.div>
           </motion.div>
         </div>
       </section>

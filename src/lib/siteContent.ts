@@ -70,7 +70,7 @@ export type SiteContent = {
 
 export const fallbackSiteContent: SiteContent = {
   home: {
-    eyebrow: "Vritti Headhunters",
+    eyebrow: "",
     headline: "Lateral & Diversity",
     accent: "Hiring Expert",
     subheadline: "Background Verification, Contract Staffing & Payroll Services",
@@ -177,7 +177,7 @@ export const fallbackSiteContent: SiteContent = {
   },
   contact: {
     headline: "Let's Connect",
-    cardTitle: "Get In Touch",
+    cardTitle: "",
     phone: "+91-70374-00096",
     email: "ceo@vheadhunt.com",
     location: "Hyderabad, India",
