@@ -96,13 +96,17 @@ export default function Services() {
 
             <div className="logo-marquee mt-10">
               <div className="logo-track">
-                {[...content.partners, ...content.partners].map((partner, index) => (
+                {[...(content.partners || []), ...(content.partners || [])].map((partner, index) => (
                   <div key={`${partner.name}-${index}`} className="logo-tile logo-tile--original">
                     <img
                       src={partner.logo}
                       alt={`${partner.name} logo`}
+                      onError={(e) => {
+                        e.currentTarget.closest(".logo-tile")?.remove();
+                      }}
                       className={partner.name === "Whitehat Jr" ? "partner-logo partner-logo--whitehat" : "partner-logo"}
                     />
+                    <div className="partner-name mt-2 text-sm text-slate-600 text-center">{partner.name}</div>
                   </div>
                 ))}
               </div>

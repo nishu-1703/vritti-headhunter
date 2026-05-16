@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { Footer } from "../components/Footer";
 import { Navigation } from "../components/Navigation";
 import { fallbackSiteContent, useSiteContent } from "@/lib/siteContent";
@@ -41,18 +41,6 @@ export default function Contact() {
               </h2>
 
               <div className="mt-8 space-y-5">
-                <div className="rounded-[1.5rem] border border-white/70 bg-white/70 p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="icon-shell h-11 w-11 rounded-xl">
-                      <Phone size={20} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Phone</p>
-                      <p className="mt-2 text-base text-slate-700">{content.phone}</p>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="rounded-[1.5rem] border border-white/70 bg-white/70 p-5">
                   <div className="flex items-start gap-4">
                     <div className="icon-shell h-11 w-11 rounded-xl">

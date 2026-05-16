@@ -8,7 +8,7 @@ export function Footer() {
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div>
               <h3 className="font-heading text-2xl font-bold tracking-[-0.04em] text-slate-900">
-                Vritti Headhunter's
+                Vritti HeadHunters
               </h3>
               <p className="mt-4 text-sm leading-7 text-slate-600">
                 Connecting exceptional talent with visionary companies.
@@ -37,7 +37,6 @@ export function Footer() {
                 Contact
               </h4>
               <div className="mt-4 space-y-3 text-sm text-slate-700">
-                <p>+91-70374-00096</p>
                 <p>ceo@vheadhunt.com</p>
               </div>
             </div>
@@ -46,7 +45,7 @@ export function Footer() {
           <div className="divider-line my-8" />
 
           <p className="text-center text-sm text-slate-500">
-            Copyright {new Date().getFullYear()} Vritti Headhunters. All rights reserved.
+            Copyright {new Date().getFullYear()} Vritti HeadHunters. All rights reserved.
           </p>
         </div>
       </div>
